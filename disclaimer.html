@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="./CSS/whatsapp.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Disclaimer — Magic Billion</title>
+    <link rel="icon" type="image/x-icon" href="/assets/images/fab-icon2.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #ce2945;
+        --secondary: #4a95c7;
+        --thirdary: #37748c;
+        --dark: #0d0d0d;
+        --white: #ffffff;
+        --heading-font: "Montserrat", sans-serif;
+        --body-font: "Inter", sans-serif;
+      }
+
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--body-font);
+        background: var(--white);
+        color: var(--dark);
+        overflow-x: hidden;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* ── NAVBAR ── */
+      .disc-nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: var(--white);
+        border-bottom: 1px solid #eee;
+        padding: 16px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .disc-nav-logo {
+        font-family: var(--heading-font);
+        font-size: 1.1rem;
+        font-weight: 800;
+        color: var(--primary);
+        text-decoration: none;
+      }
+      .disc-nav-back {
+        font-family: var(--body-font);
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--thirdary);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: gap 0.2s ease;
+      }
+      .disc-nav-back:hover {
+        gap: 10px;
+      }
+
+      /* ── HERO ── */
+      .disc-hero {
+        background: linear-gradient(135deg, var(--primary) 0%, #a01f35 100%);
+        padding: 72px 40px 60px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .disc-hero::before {
+        content: "";
+        position: absolute;
+        width: 320px;
+        height: 320px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.05);
+        top: -80px;
+        right: -60px;
+      }
+      .disc-hero::after {
+        content: "";
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.04);
+        bottom: -60px;
+        left: 40px;
+      }
+      .disc-hero-badge {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 50px;
+        padding: 6px 20px;
+        font-family: var(--body-font);
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.9);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+      .disc-hero h1 {
+        font-family: var(--heading-font);
+        font-size: clamp(2rem, 5vw, 3.2rem);
+        font-weight: 800;
+        color: var(--white);
+        line-height: 1.15;
+        position: relative;
+        z-index: 1;
+      }
+      .disc-hero-sub {
+        margin-top: 12px;
+        font-family: var(--body-font);
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.7);
+        position: relative;
+        z-index: 1;
+      }
+
+      /* ── MAIN CONTENT ── */
+      .disc-main {
+        flex: 1;
+        max-width: 900px;
+        margin: 0 auto;
+        width: 100%;
+        padding: 60px 40px 80px;
+      }
+
+      /* Org pill */
+      .disc-org-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: #fdf0f2;
+        border: 1.5px solid rgba(206, 41, 69, 0.2);
+        border-radius: 50px;
+        padding: 10px 22px;
+        margin-bottom: 40px;
+      }
+      .disc-org-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--primary);
+        flex-shrink: 0;
+      }
+      .disc-org-pill span {
+        font-family: var(--body-font);
+        font-size: 0.83rem;
+        font-weight: 600;
+        color: var(--primary);
+      }
+
+      /* Section label */
+      .disc-label {
+        font-family: var(--body-font);
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--primary);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      /* Red accent bar */
+      .disc-bar {
+        width: 48px;
+        height: 4px;
+        background: var(--primary);
+        border-radius: 2px;
+        margin-bottom: 36px;
+      }
+
+      /* Paragraphs */
+      .disc-body {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .disc-para {
+        display: flex;
+        gap: 20px;
+        padding: 28px 0;
+        border-bottom: 1px solid #f0f0f0;
+      }
+      .disc-para:last-child {
+        border-bottom: none;
+      }
+
+      .disc-para-num {
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #fdf0f2;
+        border: 1.5px solid rgba(206, 41, 69, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--heading-font);
+        font-size: 0.72rem;
+        font-weight: 800;
+        color: var(--primary);
+        margin-top: 2px;
+      }
+
+      .disc-para-text {
+        font-family: var(--body-font);
+        font-size: 0.96rem;
+        color: #3a3a3a;
+        line-height: 1.9;
+        flex: 1;
+      }
+
+      .disc-para-text strong {
+        color: var(--primary);
+        font-weight: 700;
+      }
+
+      /* Alert box */
+      .disc-alert {
+        margin-top: 44px;
+        background: linear-gradient(135deg, #fdf0f2 0%, #fef7f8 100%);
+        border: 1.5px solid rgba(206, 41, 69, 0.2);
+        border-left: 4px solid var(--primary);
+        border-radius: 12px;
+        padding: 24px 28px;
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+      }
+      .disc-alert-icon {
+        font-size: 1.2rem;
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+      .disc-alert-text {
+        font-family: var(--body-font);
+        font-size: 0.88rem;
+        color: #555;
+        line-height: 1.75;
+      }
+      .disc-alert-text strong {
+        color: var(--primary);
+        font-weight: 700;
+        display: block;
+        margin-bottom: 6px;
+        font-size: 0.92rem;
+      }
+
+      /* ── FOOTER ── */
+      .disc-footer {
+        background: #fafafa;
+        border-top: 1px solid #eee;
+        padding: 24px 40px;
+        text-align: center;
+      }
+      .disc-footer p {
+        font-family: var(--body-font);
+        font-size: 0.8rem;
+        color: #888;
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 768px) {
+        .disc-nav {
+          padding: 14px 20px;
+        }
+        .disc-hero {
+          padding: 56px 20px 44px;
+        }
+        .disc-main {
+          padding: 44px 20px 60px;
+        }
+        .disc-para {
+          gap: 14px;
+          padding: 22px 0;
+        }
+        .disc-para-text {
+          font-size: 0.9rem;
+        }
+        .disc-alert {
+          padding: 18px 20px;
+          gap: 12px;
+        }
+        .disc-footer {
+          padding: 20px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .disc-hero h1 {
+          font-size: 1.75rem;
+        }
+        .disc-org-pill {
+          flex-wrap: wrap;
+          border-radius: 12px;
+        }
+        .disc-org-pill span {
+          font-size: 0.78rem;
+        }
+        .disc-para-num {
+          width: 26px;
+          height: 26px;
+          font-size: 0.65rem;
+        }
+        .disc-para-text {
+          font-size: 0.87rem;
+          line-height: 1.8;
+        }
+        .disc-main {
+          padding: 32px 16px 48px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="disc-nav">
+      <a href="/index.html" class="disc-nav-logo">
+        <img
+          src="https://i.ibb.co/XxrznBX9/Layer-4.png"
+          alt="Magic Billion Logo"
+          style="height: 44px; width: auto; display: block"
+        />
+      </a>
+      <a href="/index.html" class="disc-nav-back"> ← Back to Home </a>
+    </nav>
+
+    <!-- Hero -->
+    <div class="disc-hero">
+      <div class="disc-hero-badge">Legal Notice</div>
+      <h1>Disclaimer</h1>
+      <p class="disc-hero-sub">
+        Magic Billion Global Skills Academy &nbsp;·&nbsp; TGM Skills Pvt. Ltd.
+      </p>
+    </div>
+
+    <!-- Main -->
+    <main class="disc-main">
+      <!-- Org Pill -->
+      <div class="disc-org-pill">
+        <span class="disc-org-dot"></span>
+        <span
+          >Magic Billion Global Skills Academy (MBGSA) — A Division of TGM
+          Skills Pvt. Ltd.</span
+        >
+      </div>
+
+      <span class="disc-label">Official Statement</span>
+      <div class="disc-bar"></div>
+
+      <div class="disc-body">
+        <div class="disc-para">
+          <div class="disc-para-num">01</div>
+          <p class="disc-para-text">
+            This is to inform all individuals, students, candidates,
+            institutions, partners, organizations, and other stakeholders that
+            any agreement, Memorandum of Understanding (MoU), Letter of Intent
+            (LoI), commercial arrangement, partnership document, commitment,
+            representation, or any other legally binding instrument purportedly
+            executed on behalf of Magic Billion Global Skills Academy
+            (<strong>"MBGSA"</strong>), a division of TGM Skills Pvt. Ltd.,
+            shall be deemed valid and binding upon MBGSA only if duly executed
+            by an authorized Director of TGM Skills Pvt. Ltd. or by an
+            officially authorized signatory expressly empowered to act on behalf
+            of the organization.
+          </p>
+        </div>
+
+        <div class="disc-para">
+          <div class="disc-para-num">02</div>
+          <p class="disc-para-text">
+            Any communication, proposal, undertaking, commitment, assurance, or
+            document not executed by the aforesaid authorized persons shall not
+            create any legal, financial, operational, or contractual obligation
+            upon MBGSA or TGM Skills Pvt. Ltd.
+          </p>
+        </div>
+
+        <div class="disc-para">
+          <div class="disc-para-num">03</div>
+          <p class="disc-para-text">
+            Prospective students, candidates, educational institutions,
+            employers, universities, training partners, service providers,
+            vendors, and all other stakeholders are advised to independently
+            verify the authority of the signatory and ensure that all relevant
+            documents have been duly executed by an authorized representative
+            before relying upon or acting on such documents.
+          </p>
+        </div>
+
+        <div class="disc-para">
+          <div class="disc-para-num">04</div>
+          <p class="disc-para-text">
+            Magic Billion Global Skills Academy and TGM Skills Pvt. Ltd. shall
+            not be responsible or liable for any commitments, representations,
+            obligations, or arrangements arising from documents or
+            communications that have not been duly authorized in accordance with
+            the above requirements.
+          </p>
+        </div>
+
+        <div class="disc-para">
+          <div class="disc-para-num">05</div>
+          <p class="disc-para-text">
+            Stakeholders are encouraged to exercise due diligence to safeguard
+            their interests while engaging with Magic Billion Global Skills
+            Academy.
+          </p>
+        </div>
+      </div>
+
+      <!-- Alert box -->
+      <div class="disc-alert">
+        <span class="disc-alert-icon">⚠️</span>
+        <div class="disc-alert-text">
+          <strong>Important Notice</strong>
+          Any document or agreement not bearing the signature of an authorized
+          Director of TGM Skills Pvt. Ltd. or an officially empowered signatory
+          shall be considered null and void with respect to any obligation upon
+          MBGSA or TGM Skills Pvt. Ltd.
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="disc-footer">
+      <p>
+        © Copyright 2026, All Rights Reserved by Magic Billion
+      </p>
+    </footer>
+
+    <!-- Floating WhatsApp Widget -->
+    <a href="https://wa.me/919891202828" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+      <span class="whatsapp-tooltip">Chat with us</span>
+      <div class="whatsapp-icon-wrapper">
+        <svg viewBox="0 0 448 512" class="whatsapp-svg">
+          <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+        </svg>
+      </div>
+      <div class="whatsapp-pulse"></div>
+    </a>
+  </body>
+</html>

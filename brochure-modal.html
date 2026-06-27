@@ -1,0 +1,88 @@
+<div class="brochure-modal-overlay" id="brochureModal" aria-hidden="true">
+  <div
+    class="brochure-modal-container"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="brochureModalTitle"
+  >
+    <button
+      class="brochure-modal-close"
+      id="brochureModalClose"
+      aria-label="Close modal"
+    >
+      &times;
+    </button>
+
+    <!-- Left panel with the student image -->
+    <div class="brochure-modal-image">
+      <img
+        src="assets/images/girl.png"
+        alt="Student holding books with map background"
+      />
+    </div>
+
+    <!-- Right panel with the message form -->
+    <div class="brochure-modal-form-wrap">
+      <h3 id="brochureModalTitle">Send Us a Message</h3>
+      <div class="form-title-bar"></div>
+
+      <form id="brochure-submit-form">
+        <div class="form-row">
+          <input type="text" placeholder="Full Name" required name="name" />
+          <input
+            type="email"
+            placeholder="Email Address"
+            required
+            name="email"
+          />
+        </div>
+        <div class="form-row">
+          <input
+            type="tel"
+            placeholder="Phone Number"
+            required
+            name="phone"
+            maxlength="10"
+          />
+          <input type="text" placeholder="City" required name="subject" />
+        </div>
+        <div class="form-row full-width">
+          <textarea
+            placeholder="Your Message"
+            rows="4"
+            required
+            name="message"
+          ></textarea>
+        </div>
+        <div class="cfs-field-select" style="display: none;">
+          <div class="cfs-select-wrap">
+            <select id="course" name="course" class="cfs-select" required>
+              <option value="" disabled selected>Select Course</option>
+              <option value="language">Language</option>
+              <option value="global-degree-program">
+                Global Degree Program
+              </option>
+            </select>
+            <span class="cfs-select-arrow">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </span>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-hero-primary form-submit-btn">
+          Send Message
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

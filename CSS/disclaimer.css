@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap");
+
+:root {
+  --primary: #ce2945;
+  --secondary: #4a95c7;
+  --thirdary: #37748c;
+  --dark: #0d0d0d;
+  --light: #f0f0f0;
+  --white: #ffffff;
+  --heading-font: "Montserrat", sans-serif;
+  --body-font: "Inter", sans-serif;
+  --transition: all 0.4s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: var(--body-font);
+  background: var(--white);
+  color: var(--dark);
+  overflow-x: hidden;
+  line-height: 1.7;
+}
+
+/* ── Page wrapper ── */
+.disclaimer-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Hero strip ── */
+.disclaimer-hero {
+  background: var(--primary);
+  padding: 60px 24px 48px;
+  text-align: center;
+}
+
+.disclaimer-hero h1 {
+  font-family: var(--heading-font);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: 0.02em;
+}
+
+.disclaimer-hero .disclaimer-sub {
+  font-family: var(--body-font);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: 10px;
+  font-weight: 400;
+}
+
+/* ── Content area ── */
+.disclaimer-content {
+  flex: 1;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 56px 24px 80px;
+  width: 100%;
+}
+
+/* Organisation badge */
+.disclaimer-org {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #fdf0f2;
+  border: 1px solid rgba(206, 41, 69, 0.18);
+  border-radius: 50px;
+  padding: 8px 20px;
+  margin-bottom: 36px;
+}
+
+.disclaimer-org span {
+  font-family: var(--body-font);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--primary);
+  letter-spacing: 0.03em;
+}
+
+.disclaimer-org-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  flex-shrink: 0;
+}
+
+/* Paragraphs */
+.disclaimer-body {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.disclaimer-body p {
+  font-family: var(--body-font);
+  font-size: 0.97rem;
+  color: #3a3a3a;
+  line-height: 1.85;
+  text-align: justify;
+}
+
+/* Highlight first sentence of each para */
+.disclaimer-body p strong {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* Divider */
+.disclaimer-divider {
+  width: 56px;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 2px;
+  margin: 8px 0 32px;
+}
+
+/* Footer strip */
+.disclaimer-footer {
+  background: #fafafa;
+  border-top: 1px solid #eee;
+  padding: 20px 24px;
+  text-align: center;
+}
+
+.disclaimer-footer p {
+  font-family: var(--body-font);
+  font-size: 0.78rem;
+  color: #888;
+}
+
+.disclaimer-footer a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.disclaimer-footer a:hover {
+  text-decoration: underline;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .disclaimer-hero {
+    padding: 48px 20px 36px;
+  }
+  .disclaimer-content {
+    padding: 40px 20px 60px;
+  }
+  .disclaimer-body p {
+    font-size: 0.92rem;
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .disclaimer-hero {
+    padding: 40px 16px 30px;
+  }
+  .disclaimer-content {
+    padding: 32px 16px 48px;
+  }
+  .disclaimer-body p {
+    font-size: 0.88rem;
+    line-height: 1.8;
+  }
+  .disclaimer-body {
+    gap: 18px;
+  }
+}

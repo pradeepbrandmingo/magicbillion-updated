@@ -1,0 +1,1061 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/CSS/contact.css" />
+    <link rel="stylesheet" href="./CSS/whatsapp.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/assets/images/fab-icon2.png" />
+    <!-- FontAwesome 6 (Free CDN) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>About Section Design</title>
+  </head>
+
+  <body>
+    <!-- ===== NAVBAR ===== -->
+    <header class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="/index.html" class="nav-logo">
+          <img
+            src="https://i.ibb.co/XxrznBX9/Layer-4.png"
+            alt="Magic Billion Logo"
+          />
+        </a>
+
+        <nav class="nav-links" id="navLinks">
+          <a href="/about.html" class="nav-link">About Us</a>
+          <a href="/language.html" class="nav-link">Language Academy</a>
+          <a href="/global-degree.html" class="nav-link"
+            >Global Degree Program</a
+          >
+          <a href="/testimonials.html" class="nav-link">Testimonials</a>
+        </nav>
+
+        <div class="nav-right">
+          <a href="/contact.html" class="btn-contact">Contact Us</a>
+          <button
+            class="hamburger"
+            id="hamburger"
+            aria-label="Toggle menu"
+            aria-expanded="false"
+          >
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="/about.html" class="mobile-link">About Us</a>
+        <a href="/language.html" class="mobile-link">Language Academy</a>
+        <a href="/global-degree.html" class="mobile-link"
+          >Global Degree Program</a
+        >
+        <a href="/testimonials.html" class="mobile-link">Testimonials</a>
+        <a href="/contact.html" class="btn-contact mobile-cta">Contact Us</a>
+      </div>
+    </header>
+
+    <!-- Navbar height ke liye spacer -->
+    <div class="nav-spacer"></div>
+
+    <!-- ===== CONTACT HERO ===== -->
+    <section class="contact-hero" id="contact-hero">
+      <div class="contact-hero-inner">
+        <div class="contact-hero-content">
+          <!-- subtitle span hata diya -->
+          <h1 class="contact-hero-title">
+            Let's Talk <br />About Your <br />Global Future
+          </h1>
+          <p class="contact-hero-desc">
+            Have a question about our programmes, fees, or your pathway abroad?
+            Our counsellors are here to help. Send us a message or give us a
+            call, and we will get back to you within 24 hours.
+          </p>
+        </div>
+        <div class="contact-hero-image">
+          <img
+            src="/assets/images/MBGSA_About_Us.jpg"
+            alt="Contact"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+      </div>
+    </section>
+    <!-- ===== END CONTACT HERO ===== -->
+
+    <!-- ============================
+    CONTACT FORM SECTION
+    ============================ -->
+    <section class="contact-form-section" id="contact-form">
+      <div class="contact-form-container">
+        <!-- LEFT: Form -->
+        <div class="cfs-left" data-animate="fade-left">
+          <h2 class="section-main-heading">Send Us a Message</h2>
+          <div class="section-heading-line"></div>
+
+          <form class="cfs-form" id="contactForm" novalidate>
+            <div class="cfs-row">
+              <div class="cfs-field">
+                <input
+                  type="text"
+                  id="fullName"
+                  name="fullName"
+                  placeholder="Full Name"
+                  class="cfs-input"
+                  required
+                />
+              </div>
+              <div class="cfs-field">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Email Address"
+                  class="cfs-input"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="cfs-row">
+              <div class="cfs-field">
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="Phone Number"
+                  class="cfs-input"
+                  maxlength="10"
+                />
+              </div>
+              <div class="cfs-field">
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  placeholder="City"
+                  class="cfs-input"
+                />
+              </div>
+            </div>
+
+            <div class="cfs-field cfs-field-full">
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Your Message"
+                class="cfs-textarea"
+                rows="5"
+                required
+              ></textarea>
+            </div>
+
+            <div class="cfs-field cfs-field-select">
+              <div class="cfs-select-wrap">
+                <select id="course" name="course" class="cfs-select">
+                  <option value="" disabled selected>Select Course</option>
+                  <option value="language">Language</option>
+                  <option value="global-degree-program">
+                    Global Degree Program
+                  </option>
+                </select>
+                <span class="cfs-select-arrow">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
+                </span>
+              </div>
+            </div>
+
+            <button type="submit" class="cfs-submit-btn">Send Message</button>
+          </form>
+        </div>
+
+        <!-- RIGHT: Contact Info -->
+        <div class="cfs-right" data-animate="fade-right">
+          <h2 class="section-main-heading">Contact Information</h2>
+          <div class="section-heading-line"></div>
+
+          <div class="cfs-info-list">
+            <div class="cfs-info-item" data-animate="fade-up" data-delay="0">
+              <div class="cfs-info-icon">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </div>
+              <div class="cfs-info-text">
+                <span class="cfs-info-label">Email Us</span>
+
+                <a href="mailto:admission.la@mbgsa.com" class="cfs-info-val">
+                  admission.la@mbgsa.com
+                </a>
+
+                <a href="mailto:admissiongdp@mbgsa.com" class="cfs-info-val">
+                  admissiongdp@mbgsa.com
+                </a>
+
+                <a href="mailto:support@mbgsa.com" class="cfs-info-val">
+                  support@mbgsa.com
+                </a>
+              </div>
+              <div class="cfs-info-divider"></div>
+            </div>
+
+            <div class="cfs-info-item" data-animate="fade-up" data-delay="100">
+              <div class="cfs-info-icon">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.15 3.38 2 2 0 0 1 3.12 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16l.92.92z"
+                  />
+                </svg>
+              </div>
+              <div class="cfs-info-text">
+                <span class="cfs-info-label">Call Us</span>
+
+                <a
+                  href="tel:+919891202828"
+                  class="cfs-info-val"
+                  style="color: inherit; text-decoration: none"
+                >
+                  +91 9891202828
+                </a>
+              </div>
+              <div class="cfs-info-divider"></div>
+            </div>
+
+            <div class="cfs-info-item" data-animate="fade-up" data-delay="200">
+              <div class="cfs-info-icon">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </div>
+              <div class="cfs-info-text">
+                <span class="cfs-info-label">Visit Us</span>
+
+                <a
+                  href="https://maps.google.com/?q=Ground+Floor+D-5+Logix+Infotech+Park+Sector+59+Noida+Uttar+Pradesh+201301"
+                  target="_blank"
+                  class="cfs-info-val"
+                  style="color: inherit; text-decoration: none"
+                >
+                  Ground Floor, D-5, Logix Infotech Park, Sector 59, Noida,
+                  Uttar Pradesh, India 201301
+                </a>
+              </div>
+              <div class="cfs-info-divider"></div>
+            </div>
+
+            <div class="cfs-info-item" data-animate="fade-up" data-delay="300">
+              <div class="cfs-info-icon">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+              </div>
+              <div class="cfs-info-text">
+                <span class="cfs-info-label">Response Time</span>
+                <span class="cfs-info-val">Within 24 business hours</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+    WHERE WE ARE SECTION
+    Paste into your HTML file
+    ============================ -->
+    <section class="whereweare" id="where-we-are">
+      <div class="whereweare-container">
+        <!-- LEFT: Text -->
+        <div class="whereweare-content" data-animate="fade-left">
+          <p class="whereweare-label">Where We Are</p>
+          <h2 class="section-main-heading">Where to Find Us</h2>
+          <p class="whereweare-desc">
+            Visit our Noida office or connect with us online. Whether you prefer
+            to drop by or speak with a counsellor over a call, we are easy to
+            reach. • Button: View on Map
+          </p>
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=Magic+Billion+Global+Skills+Academy+Ground+Floor+D-5+Logix+Infotech+Park+Sector+59+Noida+Uttar+Pradesh+201301+India"
+            target="_blank"
+            rel="noopener"
+            class="whereweare-btn"
+          >
+            View on Map
+          </a>
+        </div>
+
+        <!-- RIGHT: Map embed + card -->
+        <div class="whereweare-map-wrap" data-animate="fade-right">
+          <!-- Google Maps embed (replace src with your actual embed URL if needed) -->
+          <iframe
+            class="whereweare-map"
+            src="https://maps.google.com/maps?q=Magic%20Billion%20Global%20Skills%20Academy,%20Ground%20Floor,%20D-5,%20Logix%20Infotech%20Park,%20Sector%2059,%20Noida,%20Uttar%20Pradesh%20201301,%20India&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Magic Billion Global Skills Academy"
+          ></iframe>
+
+          <!-- Floating location card -->
+          <div class="whereweare-card" data-animate="fade-up" data-delay="200">
+            <div class="whereweare-card-icon">
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+                <line x1="12" y1="12" x2="12" y2="12" />
+                <path d="M12 12h.01" />
+              </svg>
+            </div>
+            <div class="whereweare-card-text">
+              <span class="whereweare-card-name">
+                Magic Billion Global Skills Academy
+              </span>
+
+              <span class="whereweare-card-addr">
+                Ground Floor, D-5, Logix Infotech Park,<br />
+                Sector 59, Noida, Uttar Pradesh 201301, India
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+    HOW CAN WE HELP YOU SECTION
+    ============================================================ -->
+    <section class="howhelp">
+      <div class="howhelp-container">
+        <!-- Top Label -->
+        <p class="howhelp-label" data-animate="fade-up" data-delay="0">
+          How Can We Help You
+        </p>
+
+        <!-- Main Heading -->
+        <h2
+          class="howhelp-heading section-main-heading"
+          data-animate="fade-up"
+          data-delay="100"
+        >
+          How Can We Help You
+        </h2>
+
+        <!-- Cards Grid -->
+        <div class="howhelp-grid">
+          <!-- Card 1 -->
+          <div class="howhelp-card" data-animate="fade-up" data-delay="100">
+            <div class="howhelp-card-header">
+              <div class="howhelp-icon-wrap" aria-hidden="true">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <h3 class="howhelp-card-title">Programme Guidance</h3>
+            </div>
+            <p class="howhelp-card-desc">
+              Not sure which path fits you? We will help you choose between
+              language training and our global degree program.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="howhelp-card howhelp-card--center"
+            data-animate="fade-up"
+            data-delay="200"
+          >
+            <div class="howhelp-card-header">
+              <div class="howhelp-icon-wrap" aria-hidden="true">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <h3 class="howhelp-card-title">Fees and Payment Plans</h3>
+            </div>
+            <p class="howhelp-card-desc">
+              Get clear, honest information on costs, what is included, and
+              flexible payment options
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="howhelp-card" data-animate="fade-up" data-delay="300">
+            <div class="howhelp-card-header">
+              <div class="howhelp-icon-wrap" aria-hidden="true">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <h3 class="howhelp-card-title">Application Support:</h3>
+            </div>
+            <p class="howhelp-card-desc">
+              From documents to admission, our team guides you through every
+              step.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+   LET'S START CONVERSATION SECTION
+============================================================ -->
+    <section class="letstart">
+      <div class="letstart-container">
+        <!-- LEFT: Text Content -->
+        <div class="letstart-content" data-animate="fade-left" data-delay="0">
+          <p class="letstart-label">Let's Start Converstaion</p>
+          <h2 class="letstart-heading">Ready to Take the First Step?</h2>
+          <p class="letstart-desc">
+            Speak to one of our counsellors today and get a personalised plan
+            for your global career. No pressure, just clear guidance on your
+            options.
+          </p>
+          <a href="#contact" class="letstart-btn"> Call Us Now </a>
+        </div>
+
+        <!-- RIGHT: Image -->
+        <div
+          class="letstart-image-wrap"
+          data-animate="fade-right"
+          data-delay="150"
+        >
+          <img
+            src="/assets/images/START_YOUR_JOURNEY_WITH_US_2.JPG"
+            class="letstart-img"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- Col 1: Brand -->
+        <div class="footer-brand">
+          <div class="footer-logo-wrap">
+            <img
+              src="https://i.ibb.co/XxrznBX9/Layer-4.png"
+              alt="Magic Billion Logo"
+              class="footer-logo-img"
+            />
+          </div>
+          <div class="footer-divider"></div>
+
+          <div class="footer-contact-item">
+            <!-- Phone icon (FontAwesome) -->
+            <i class="fa-solid fa-phone footer-icon"></i>
+            <div>
+              <span class="footer-contact-label">Contact Us</span>
+              <span class="footer-contact-val">
+                <a
+                  href="tel:+919891202828"
+                  class="cfs-info-val"
+                  style="color: inherit; text-decoration: none"
+                >
+                  +91 9891202828
+                </a></span
+              >
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <!-- Email icon (FontAwesome) -->
+            <i class="fa-solid fa-envelope footer-icon"></i>
+            <div>
+              <span class="footer-contact-label">Email Us</span>
+              <span class="footer-contact-val">
+                <a
+                  href="mailto:admissiongdp@mbgsa.com"
+                  class="footer-email-link"
+                >
+                  admissiongdp@mbgsa.com </a
+                ><br />
+                <a
+                  href="mailto:admission.la@mbgsa.com"
+                  class="footer-email-link"
+                >
+                  admission.la@mbgsa.com </a
+                ><br />
+                <a href="mailto:support@mbgsa.com" class="footer-email-link">
+                  support@mbgsa.com
+                </a>
+              </span>
+            </div>
+          </div>
+
+          <div class="footer-contact-item">
+            <!-- Location icon (FontAwesome) -->
+            <i class="fa-solid fa-location-dot footer-icon"></i>
+            <div>
+              <span class="footer-contact-label">Location</span>
+              <span class="footer-contact-val">
+                <a
+                  href="https://maps.google.com/?q=Ground+Floor+D-5+Logix+Infotech+Park+Sector+59+Noida+Uttar+Pradesh+201301"
+                  target="_blank"
+                  class="cfs-info-val"
+                  style="color: inherit; text-decoration: none"
+                >
+                  Ground Floor, D-5, Logix Infotech Park, Sector 59, Noida,
+                  Uttar Pradesh, India 201301
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-list">
+            <li><a href="about.html" class="footer-link">About Us</a></li>
+            <li><a href="/about.html" class="footer-link">Team</a></li>
+            <li><a href="contact.html" class="footer-link">Contact Us</a></li>
+            <li>
+              <a href="testimonials.html" class="footer-link">Testimonials</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Program -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Program</h4>
+          <ul class="footer-list">
+            <li>
+              <a href="language.html" class="footer-link"
+                >Language Training Academy</a
+              >
+            </li>
+            <li>
+              <a href="global-degree.html" class="footer-link">Global Degree</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Legal -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Legal</h4>
+          <ul class="footer-list">
+            <li>
+              <a href="disclaimer.html" class="footer-link">Disclaimer</a>
+            </li>
+            <li>
+              <a href="privacy-policies.html" class="footer-link"
+                >Privacy Policies</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Col 5: Social + Salesforce -->
+        <div class="footer-col footer-col-right">
+          <h4 class="footer-col-title">Follow Us On</h4>
+          <div class="footer-social">
+            <a
+              href="https://www.instagram.com/mb_globalskillsacademy/"
+              class="footer-social-link"
+              aria-label="Instagram"
+            >
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/company/magicbillion/"
+              class="footer-social-link"
+              aria-label="X (Twitter)"
+            >
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a
+              href="https://www.youtube.com/@magicbillion/playlists"
+              class="footer-social-link"
+              aria-label="YouTube"
+            >
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+            <a
+              href="https://magicbillion.in/"
+              class="footer-social-link"
+              aria-label="Facebook"
+            >
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+          </div>
+
+          <div class="footer-partner">
+            <span class="footer-partner-label">Technology partner</span>
+            <img
+              src="https://i.ibb.co/3yfzBB2D/Salesforce-logo-copy-1.png"
+              alt="Salesforce"
+              class="footer-salesforce-logo"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="footer-bottom">
+        <p class="footer-copy">
+          © Copyright 2026, All Rights Reserved by Magic Billion
+        </p>
+      </div>
+    </footer>
+
+    <!-- JS -->
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script>
+      var navbar = document.getElementById("navbar");
+      if (navbar) {
+        window.addEventListener("scroll", () => {
+          navbar.classList.toggle("scrolled", window.scrollY > 20);
+        });
+      }
+
+      // ---- Hamburger ----
+      var hamburger = document.getElementById("hamburger");
+      var mobileMenu = document.getElementById("mobileMenu");
+      if (hamburger && mobileMenu) {
+        hamburger.addEventListener("click", () => {
+          const open = mobileMenu.classList.toggle("open");
+          hamburger.classList.toggle("active", open);
+          hamburger.setAttribute("aria-expanded", open);
+        });
+        document
+          .querySelectorAll(".mobile-link, .mobile-cta")
+          .forEach((link) => {
+            link.addEventListener("click", () => {
+              mobileMenu.classList.remove("open");
+              hamburger.classList.remove("active");
+              hamburger.setAttribute("aria-expanded", false);
+            });
+          });
+      }
+
+      // Active nav link highlight on load
+      function setActiveNavbarLinks() {
+        const currentClean =
+          window.location.pathname
+            .split("/")
+            .pop()
+            .split(/[?#]/)[0]
+            .replace(/\.[^/.]+$/, "") || "index";
+        document.querySelectorAll(".nav-link, .mobile-link").forEach((link) => {
+          const href = link.getAttribute("href");
+          if (href) {
+            const linkClean =
+              href
+                .split("/")
+                .pop()
+                .split(/[?#]/)[0]
+                .replace(/\.[^/.]+$/, "") || "index";
+            link.classList.toggle("active", currentClean === linkClean);
+          }
+        });
+      }
+      setActiveNavbarLinks();
+
+      // ---- Active nav link ----
+      document.querySelectorAll(".nav-link, .mobile-link").forEach((link) => {
+        link.addEventListener("click", function () {
+          const text = this.textContent.trim();
+          document.querySelectorAll(".nav-link").forEach((l) => {
+            l.classList.toggle("active", l.textContent.trim() === text);
+          });
+          document.querySelectorAll(".mobile-link").forEach((l) => {
+            l.classList.toggle("active", l.textContent.trim() === text);
+          });
+        });
+      });
+
+      // ---- About rows scroll animation ----
+      const aboutRows = document.querySelectorAll(".about-row");
+      if (aboutRows.length > 0) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.15 },
+        );
+        aboutRows.forEach((row) => observer.observe(row));
+      }
+    </script>
+
+    <!-- hero secton  -->
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.from(".contact-hero-content", {
+        x: -50,
+        opacity: 0,
+        duration: 0.9,
+        ease: "power3.out",
+        delay: 0.2,
+      });
+      gsap.from(".contact-hero-image", {
+        x: 50,
+        opacity: 0,
+        duration: 0.9,
+        ease: "power3.out",
+        delay: 0.35,
+      });
+    </script>
+
+    <!-- CONTACT FORM SECTION — JS -->
+    <script>
+      (function () {
+        // ---- Scroll Animation (IntersectionObserver) ----
+        const animEls = document.querySelectorAll("[data-animate]");
+
+        if ("IntersectionObserver" in window && animEls.length) {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("is-visible");
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.15 },
+          );
+
+          animEls.forEach((el) => observer.observe(el));
+        } else {
+          animEls.forEach((el) => el.classList.add("is-visible"));
+        }
+
+        // ---- Validation Helper ----
+        function validateForm(form) {
+          let valid = true;
+
+          // Reset all borders first
+          form.querySelectorAll(".cfs-input, .cfs-textarea").forEach((el) => {
+            el.style.borderColor = "";
+          });
+
+          const getValue = (name) =>
+            (form.querySelector(`[name="${name}"]`)?.value || "").trim();
+
+          // Full Name — required
+          const name = getValue("fullName");
+          if (!name) {
+            form.querySelector('[name="fullName"]').style.borderColor =
+              "var(--primary)";
+            valid = false;
+          }
+
+          // Email — required + format
+          const email = getValue("email");
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!email || !emailRegex.test(email)) {
+            form.querySelector('[name="email"]').style.borderColor =
+              "var(--primary)";
+            valid = false;
+          }
+
+          // Phone — required + exactly 10 digits
+          const phone = getValue("phone");
+          const phoneRegex = /^[6-9]\d{9}$/;
+          if (!phone || !phoneRegex.test(phone)) {
+            form.querySelector('[name="phone"]').style.borderColor =
+              "var(--primary)";
+            valid = false;
+          }
+
+          // Subject — required
+          const subject = getValue("subject");
+          if (!subject) {
+            form.querySelector('[name="subject"]').style.borderColor =
+              "var(--primary)";
+            valid = false;
+          }
+
+          // Message — required
+          const message = getValue("message");
+          if (!message) {
+            form.querySelector('[name="message"]').style.borderColor =
+              "var(--primary)";
+            valid = false;
+          }
+
+          return valid;
+        }
+
+        // ---- Contact Form Submit ----
+        const form = document.getElementById("contactForm");
+
+        if (form) {
+          form.addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const btn = form.querySelector(".cfs-submit-btn");
+            const originalText = btn.textContent;
+
+            // Run validation
+            if (!validateForm(form)) return;
+
+            btn.textContent = "Sending...";
+            try {
+              const formData = {
+                name: form.querySelector('[name="fullName"]').value,
+                email: form.querySelector('[name="email"]').value,
+                phone: form.querySelector('[name="phone"]').value,
+                subject: form.querySelector('[name="subject"]').value,
+                message: form.querySelector('[name="message"]').value,
+                course: form.querySelector('[name="course"]').value,
+                source: "Contact Us Page",
+              };
+
+              let success = false;
+              let errorMsg = "Something went wrong";
+
+              try {
+                const response = await fetch("/api/lead", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify(formData),
+                });
+
+                const result = await response.json();
+
+                if (response.ok && result.success) {
+                  success = true;
+                  console.log("Contact Lead:", result);
+                } else {
+                  success = false;
+                  errorMsg = result.message || "Something went wrong.";
+
+                  console.error("Salesforce Error:", result);
+
+                  // Duplicate / Validation message
+                  alert(errorMsg);
+                }
+              } catch (e) {
+                console.error("API Error:", e);
+
+                success = false;
+                errorMsg = "Unable to connect to the server.";
+
+                alert(errorMsg);
+              }
+
+              if (success) {
+                btn.textContent = "Message Sent ✓";
+                btn.style.background = "#28a745";
+                btn.style.borderColor = "#28a745";
+
+                setTimeout(() => {
+                  btn.textContent = originalText;
+                  btn.style.background = "";
+                  btn.style.borderColor = "";
+                  btn.disabled = false;
+                  form.reset();
+                }, 3000);
+              } else {
+                throw new Error(errorMsg);
+              }
+            } catch (error) {
+              console.error("Error:", error);
+
+              btn.textContent = "Failed!";
+
+              setTimeout(() => {
+                btn.textContent = originalText;
+                btn.disabled = false;
+              }, 3000);
+            }
+          });
+        }
+      })();
+    </script>
+
+    <!--  WHERE WE ARE SECTION — Scroll Animation JS -->
+    <script>
+      (function () {
+        // Guard: skip if observer already set up by another section script
+        if (window._animObserverInit) return;
+        window._animObserverInit = true;
+
+        const animEls = document.querySelectorAll("[data-animate]");
+        if (!animEls.length) return;
+
+        if ("IntersectionObserver" in window) {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("is-visible");
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.15 },
+          );
+          animEls.forEach((el) => observer.observe(el));
+        } else {
+          animEls.forEach((el) => el.classList.add("is-visible"));
+        }
+      })();
+    </script>
+
+    <!-- 4 -->
+    <script>
+      const animEls = document.querySelectorAll("[data-animate]");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("is-visible");
+              observer.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.15 },
+      );
+      animEls.forEach((el) => observer.observe(el));
+    </script>
+
+    <!--  -->
+    <script></script>
+
+    <!-- Floating WhatsApp Widget -->
+    <a
+      href="https://wa.me/919891202828"
+      class="whatsapp-float"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat on WhatsApp"
+    >
+      <span class="whatsapp-tooltip">Chat with us</span>
+      <div class="whatsapp-icon-wrapper">
+        <svg viewBox="0 0 448 512" class="whatsapp-svg">
+          <path
+            d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"
+          />
+        </svg>
+      </div>
+      <div class="whatsapp-pulse"></div>
+    </a>
+  </body>
+</html>

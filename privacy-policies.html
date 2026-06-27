@@ -1,0 +1,820 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="./CSS/whatsapp.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy — Magic Billion</title>
+    <link rel="icon" type="image/x-icon" href="/assets/images/fab-icon2.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #ce2945;
+        --secondary: #4a95c7;
+        --thirdary: #37748c;
+        --dark: #0d0d0d;
+        --white: #ffffff;
+        --heading-font: "Montserrat", sans-serif;
+        --body-font: "Inter", sans-serif;
+      }
+
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--body-font);
+        background: var(--white);
+        color: var(--dark);
+        overflow-x: hidden;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* ── NAVBAR ── */
+      .disc-nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: var(--white);
+        border-bottom: 1px solid #eee;
+        padding: 16px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .disc-nav-logo {
+        font-family: var(--heading-font);
+        font-size: 1.1rem;
+        font-weight: 800;
+        color: var(--primary);
+        text-decoration: none;
+      }
+      .disc-nav-back {
+        font-family: var(--body-font);
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--thirdary);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: gap 0.2s ease;
+      }
+      .disc-nav-back:hover {
+        gap: 10px;
+      }
+
+      /* ── HERO ── */
+      .disc-hero {
+        background: linear-gradient(135deg, var(--primary) 0%, #a01f35 100%);
+        padding: 72px 40px 60px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .disc-hero::before {
+        content: "";
+        position: absolute;
+        width: 320px;
+        height: 320px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.05);
+        top: -80px;
+        right: -60px;
+      }
+      .disc-hero::after {
+        content: "";
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.04);
+        bottom: -60px;
+        left: 40px;
+      }
+      .disc-hero-badge {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 50px;
+        padding: 6px 20px;
+        font-family: var(--body-font);
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.9);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+      .disc-hero h1 {
+        font-family: var(--heading-font);
+        font-size: clamp(2rem, 5vw, 3.2rem);
+        font-weight: 800;
+        color: var(--white);
+        line-height: 1.15;
+        position: relative;
+        z-index: 1;
+      }
+      .disc-hero-sub {
+        margin-top: 12px;
+        font-family: var(--body-font);
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.7);
+        position: relative;
+        z-index: 1;
+      }
+
+      /* ── MAIN CONTENT ── */
+      .disc-main {
+        flex: 1;
+        max-width: 900px;
+        margin: 0 auto;
+        width: 100%;
+        padding: 60px 40px 80px;
+      }
+
+      /* Org pill */
+      .disc-org-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: #fdf0f2;
+        border: 1.5px solid rgba(206, 41, 69, 0.2);
+        border-radius: 50px;
+        padding: 10px 22px;
+        margin-bottom: 40px;
+      }
+      .disc-org-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--primary);
+        flex-shrink: 0;
+      }
+      .disc-org-pill span {
+        font-family: var(--body-font);
+        font-size: 0.83rem;
+        font-weight: 600;
+        color: var(--primary);
+      }
+
+      /* Section label */
+      .disc-label {
+        font-family: var(--body-font);
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--primary);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      /* Red accent bar */
+      .disc-bar {
+        width: 48px;
+        height: 4px;
+        background: var(--primary);
+        border-radius: 2px;
+        margin-bottom: 36px;
+      }
+
+      /* Paragraphs */
+      .disc-body {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .disc-para {
+        display: flex;
+        gap: 20px;
+        padding: 28px 0;
+        border-bottom: 1px solid #f0f0f0;
+      }
+      .disc-para:last-child {
+        border-bottom: none;
+      }
+
+      .disc-para-num {
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #fdf0f2;
+        border: 1.5px solid rgba(206, 41, 69, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--heading-font);
+        font-size: 0.72rem;
+        font-weight: 800;
+        color: var(--primary);
+        margin-top: 2px;
+      }
+
+      .disc-para-text {
+        font-family: var(--body-font);
+        font-size: 0.96rem;
+        color: #3a3a3a;
+        line-height: 1.9;
+        flex: 1;
+      }
+
+      .disc-para-text h3 {
+        font-family: var(--heading-font);
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--dark);
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+      }
+
+      .disc-para-text p {
+        margin-bottom: 14px;
+      }
+      .disc-para-text p:last-child {
+        margin-bottom: 0;
+      }
+
+      .disc-para-text strong {
+        color: var(--primary);
+        font-weight: 700;
+      }
+
+      /* Sub-lists within layout */
+      .disc-sublist {
+        list-style: none;
+        margin: 14px 0 14px 4px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .disc-sublist li {
+        position: relative;
+        padding-left: 20px;
+        color: #4a4a4a;
+      }
+      .disc-sublist li::before {
+        content: "•";
+        color: var(--primary);
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      /* Alert box / Contact details box */
+      .disc-alert {
+        margin-top: 44px;
+        background: linear-gradient(135deg, #fdf0f2 0%, #fef7f8 100%);
+        border: 1.5px solid rgba(206, 41, 69, 0.2);
+        border-left: 4px solid var(--primary);
+        border-radius: 12px;
+        padding: 24px 28px;
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+      }
+      .disc-alert-icon {
+        font-size: 1.2rem;
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+      .disc-alert-text {
+        font-family: var(--body-font);
+        font-size: 0.88rem;
+        color: #555;
+        line-height: 1.75;
+      }
+      .disc-alert-text strong {
+        color: var(--primary);
+        font-weight: 700;
+        display: block;
+        margin-bottom: 6px;
+        font-size: 0.92rem;
+      }
+
+      /* ── FOOTER ── */
+      .disc-footer {
+        background: #fafafa;
+        border-top: 1px solid #eee;
+        padding: 24px 40px;
+        text-align: center;
+      }
+      .disc-footer p {
+        font-family: var(--body-font);
+        font-size: 0.8rem;
+        color: #888;
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 768px) {
+        .disc-nav {
+          padding: 14px 20px;
+        }
+        .disc-hero {
+          padding: 56px 20px 44px;
+        }
+        .disc-main {
+          padding: 44px 20px 60px;
+        }
+        .disc-para {
+          gap: 14px;
+          padding: 22px 0;
+        }
+        .disc-para-text {
+          font-size: 0.9rem;
+        }
+        .disc-alert {
+          padding: 18px 20px;
+          gap: 12px;
+        }
+        .disc-footer {
+          padding: 20px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .disc-hero h1 {
+          font-size: 1.75rem;
+        }
+        .disc-org-pill {
+          flex-wrap: wrap;
+          border-radius: 12px;
+        }
+        .disc-org-pill span {
+          font-size: 0.78rem;
+        }
+        .disc-para-num {
+          width: 26px;
+          height: 26px;
+          font-size: 0.65rem;
+        }
+        .disc-para-text {
+          font-size: 0.87rem;
+          line-height: 1.8;
+        }
+        .disc-main {
+          padding: 32px 16px 48px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="disc-nav">
+      <a href="/index.html" class="disc-nav-logo">
+        <img
+          src="https://i.ibb.co/XxrznBX9/Layer-4.png"
+          alt="Magic Billion Logo"
+          style="height: 44px; width: auto; display: block"
+        />
+      </a>
+      <a href="/index.html" class="disc-nav-back"> ← Back to Home </a>
+    </nav>
+
+    <div class="disc-hero">
+      <div class="disc-hero-badge">Last Updated: June 2026</div>
+      <h1>Privacy Policy</h1>
+      <p class="disc-hero-sub">
+        Magic Billion &nbsp;·&nbsp; A Unit of TGM Services Pvt. Ltd.
+      </p>
+    </div>
+
+    <main class="disc-main">
+      <div class="disc-org-pill">
+        <span class="disc-org-dot"></span>
+        <span
+          >Magic Billion — International Talent Mobility &amp; Recruitment
+          Platform</span
+        >
+      </div>
+
+      <span class="disc-label">Privacy Guidelines</span>
+      <div class="disc-bar"></div>
+
+      <div class="disc-body">
+        <div class="disc-para">
+          <div class="disc-para-num">00</div>
+          <div class="disc-para-text">
+            <p>
+              This page informs you of our policies regarding the collection,
+              use, and disclosure of Personal Information we receive from users
+              of this website. We use your Personal Information only for
+              providing information and improving the site. By using the site,
+              you agree to the collection and use of information in accordance
+              with this policy.
+            </p>
+          </div>
+        </div>
+
+        <div class="disc-para">
+          <div class="disc-para-num">01</div>
+          <div class="disc-para-text">
+            <h3>Introduction</h3>
+            <p>
+              This Privacy Policy describes how
+              <strong>Magic Billion</strong> (a unit of TGM Services Private
+              Limited) (“Company”, “we”, “us”, or “our”) collects, uses, stores,
+              and protects personal data of users (“you”, “user”, “candidate”)
+              who access our website:
+              <a
+                href="https://magicbillion.in"
+                target="_blank"
+                style="
+                  color: var(--thirdary);
+                  text-decoration: none;
+                  font-weight: 600;
+                "
+                >https://magicbillion.in</a
+              >.
+            </p>
+            <p>
+              The Company operates as an international talent mobility and
+              recruitment platform, connecting Indian candidates with global
+              employers. By accessing or using the website, you consent to the
+              practices described in this Privacy Policy.
+            </p>
+          </div>
+        </div>
+
+        <div class="disc-para">
+          <div class="disc-para-num">02</div>
+          <div class="disc-para-text">
+            <h3>Applicable Laws</h3>
+            <p>
+              This Policy complies with the following legal frame structures:
+            </p>
+            <ul class="disc-sublist">
+              <li>Information Technology Act, 2000</li>
+              <li>
+                IT (Reasonable Security Practices and Procedures and Sensitive
+                Personal Data or Information) Rules, 2011
+              </li>
+              <li>Digital Personal Data Protection Act, 2023</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="disc-para">
+          <div class="disc-para-num">03</div>
+          <div class="disc-para-text">
+            <h3>Information Collection &amp; Use</h3>
+            <p>
+              We collect information from you when you register on our site or
+              fill out a form. The information is personally identifiable data
+              that we use to contact or identify you. While entering details,
+              you may be asked to submit tracking items; however, you may visit
+              our site anonymously.
+            </p>
+
+            <p style="margin-top: 18px; font-weight: 600; color: var(--dark)">
+              A. Personal Information Collected:
+            </p>
+            <ul class="disc-sublist">
+              <li>Full name</li>
+              <li>Email address</li>
+              <li>Phone number</li>
+              <li>Educational qualifications</li>
+              <li>Resume/CV and employment details</li>
+              <li>
+                Identity documents (if required for recruitment/visa processing)
+              </li>
+            </ul>
+
+            <p style="margin-top: 18px; font-weight: 600; color: var(--dark)">
+              B. Sensitive Personal Data (Where Applicable):
+            </p>
+            <p>
+              Collected strictly when necessary for visa setups or employment
+              and under clear execution loops:
+            </p>
+            <ul class="disc-sublist">
+              <li>Government ID details</li>
+              <li>Passport information</li>
+              <li>Financial/payment details</li>
+              <li>Health data (if required for visa/employment)</li>
+            </ul>
+
+            <p style="margin-top: 18px; font-weight: 600; color: var(--dark)">
+              C. Automatically Collected Data:
+            </p>
+            <ul class="disc-sublist">
+              <li>IP address</li>
+              <li>Browser/device details</li>
+              <li>Usage behavior</li>
+              <li>Cookies and tracking data</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="disc-para">
+          <div class="disc-para-num">04</div>
+          <div class="disc-para-text">
+            <h3>Purpose of Data Collection</h3>
+            <p>
+              Your data is systematically processed for the following use-cases:
+            </p>
+            <ul class="disc-sublist">
+              <li>Candidate registration and profile creation</li>
+              <li>Matching candidates with international employers</li>
+              <li>Processing job applications and recruitment services</li>
+              <li>Communication tracks (calls, emails, WhatsApp updates)</li>
+              <li>Training, assessments, and program delivery profiles</li>
+              <li>
+                Visa structures, documentation runs, and global onboarding
+                support
+              </li>
+              <li>Absolute compliance with legal and regulatory obligations</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="disc-para">
+          <div class="disc-para-num">05</div>
+          <div class="disc-para-text">
+            <h3>Legal Basis (Under DPDP Act)</h3>
+            <p>We process personal data based on the legal terms below:</p>
+            <ul class="disc-sublist">
+              <li>
+                <strong>Consent:</strong> Your specific, explicit agreement acts
+                as our primary processing framework.
+              </li>
+              <li>
+                <strong>Performance of Services:</strong> Processing needed to
+                fulfill operational requests triggered directly by you.
+              </li>
+              <li>
+                <strong>Legal Obligations:</strong> Compliance handles including
+                statutory immigration audits and regulatory recruitment
+                licensing.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="disc-para">
+          <div class="disc-para-num">06</div>
+          <div class="disc-para-text">
+            <h3>Data Sharing &amp; Disclosure</h3>
+            <p>
+              Any information you provide, whether public or private, will not
+              be sold, exchanged, transferred, or given to any other company for
+              any reason whatsoever without your consent, other than for the
+              express purpose of service delivery.
+            </p>
+            <p style="margin-top: 14px; font-weight: 600; color: var(--dark)">
+              We may share your data with:
+            </p>
+            <ul class="disc-sublist">
+              <li>
+                <strong>Employers &amp; Partners:</strong> Foreign employers,
+                Global training partners, and corresponding Government
+                authorities (India &amp; foreign jurisdictions).
+              </li>
+              <li>
+                <strong>Service Providers:</strong> Integrated payment gateways,
+                IT/cloud service entities, and background verification systems.
+              </li>
+              <li>
+                <strong>Legal Authorities:</strong> Statutory networks or
+                enforcement wings when bound strictly by operational law.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="disc-para">
+          <div class="disc-para-num">07</div>
+          <div class="disc-para-text">
+            <h3>Cross-Border Data Transfer</h3>
+            <p>
+              Since our core functions focus on international talent mobility
+              and global employment pipelines, your personal data parameters may
+              be securely transferred outside the territory of India.
+            </p>
+            <p>
+              We carefully ensure adequate data protection safeguards remain
+              implemented and verify that all processing activities outside
+              Indian borders execute purely for legitimate fulfillment
+              architectures.
+            </p>
+          </div>
+        </div>
+
+        <div class="disc-para">
+          <div class="disc-para-num">08</div>
+          <div class="disc-para-text">
+            <h3>Data Retention</h3>
+            <p>We retain your personal lifecycle data parameters only:</p>
+            <ul class="disc-sublist">
+              <li>
+                As long as necessary to complete service runs requested by the
+                candidate.
+              </li>
+              <li>
+                For fulfilling underlying legal, compliance, or structural audit
+                systems.
+              </li>
+              <li>
+                Until a specific withdrawal of consent is requested by the user
+                (subject to valid preservation mandates).
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="disc-para">
+          <div class="disc-para-num">09</div>
+          <div class="disc-para-text">
+            <h3>User Rights (Under DPDP Act)</h3>
+            <p>
+              As a data principal, you hold absolute rights to manage your
+              tracking signatures:
+            </p>
+            <ul class="disc-sublist">
+              <li>
+                Right to access and review your processed personal data layouts.
+              </li>
+              <li>
+                Right to correct inaccuracies or complete pending information
+                parameters.
+              </li>
+              <li>
+                Right to request immediate deletion of personal records from our
+                system engines.
+              </li>
+              <li>
+                Right to withdraw your functional consent at any point in time.
+              </li>
+              <li>
+                Right to approach our formal grievance redressal system for
+                immediate correction resolution.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="disc-para">
+          <div class="disc-para-num">10</div>
+          <div class="disc-para-text">
+            <h3>Cookies Policy</h3>
+            <p>
+              A cookie is a small file which asks permission to be placed on
+              your computer’s hard drive. Once you agree, the file is added and
+              the cookie helps analyse web traffic or lets you know when you
+              visit a particular site. Cookies allow web applications to respond
+              to you as an individual.
+            </p>
+            <p>
+              We use traffic log cookies to identify which pages are being used.
+              This helps us analyse data about webpage traffic and improve our
+              website in order to tailor it to customer needs. We only use this
+              information for statistical analysis purposes and then the data is
+              removed from the system.
+            </p>
+            <p>
+              Overall, cookies help us provide you with a better website by
+              enabling us to monitor which pages you find useful and which you
+              do not. A cookie in no way gives us access to your computer or any
+              information about you, other than the data you choose to share
+              with us. You can choose to accept or decline cookies via your
+              browser configurations.
+            </p>
+          </div>
+        </div>
+
+        <div class="disc-para">
+          <div class="disc-para-num">11</div>
+          <div class="disc-para-text">
+            <h3>Data Security</h3>
+            <p>
+              We implement a variety of security measures to maintain the safety
+              of your personal information. When you submit sensitive
+              information via the website, your information is protected both
+              online and offline through strict corporate practices:
+            </p>
+            <ul class="disc-sublist">
+              <li>
+                Advanced cryptographic encryption matrices and secure data
+                server architectures.
+              </li>
+              <li>Role-based access controls to prevent structural leakage.</li>
+              <li>
+                Comprehensive internal data protection policies across all
+                operating units.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="disc-para">
+          <div class="disc-para-num">12</div>
+          <div class="disc-para-text">
+            <h3>Third-Party Links &amp; Minor Privacy</h3>
+            <p>
+              <strong>Third-Party Links:</strong> Our official online domain
+              interfaces may contain outward links redirecting to external
+              partner spaces. We hold zero liability or administrative
+              responsibility over the individual privacy procedures of external
+              systems.
+            </p>
+            <p style="margin-top: 10px">
+              <strong>Children's Privacy:</strong> Our international talent
+              mobility platforms and educational assessment frameworks are not
+              structured for individuals under 18 years of age. We do not
+              knowingly collect or parse minor information data packages.
+            </p>
+          </div>
+        </div>
+
+        <div class="disc-para">
+          <div class="disc-para-num">13</div>
+          <div class="disc-para-text">
+            <h3>Consent &amp; Operational Adjustments</h3>
+            <p>
+              By continuing active engagement operations with our online
+              platforms, you formally signal an unconditional consent loop for
+              our data collections, international transfer runs, and validation
+              pathways.
+            </p>
+            <p>
+              You hold full authority to request clear withdrawal of data loops
+              via digital write-ups anytime. Please note that withdrawing active
+              processing consent pathways might prevent the platform engine from
+              rendering continuous recruitment support or visa allocations.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="disc-alert">
+        <span class="disc-alert-icon">💼</span>
+        <div class="disc-alert-text">
+          <strong>Official Grievance Redressal</strong>
+          As mandated by the Information Technology Rules and the DPDP Act, all
+          feedback, complaints, or data deletion queries must be explicitly
+          filed with our designated Grievance Officer:
+          <span
+            style="
+              display: block;
+              margin-top: 8px;
+              font-weight: 600;
+              color: var(--dark);
+            "
+          >
+            📧 Email Address: support@mbgsa.com<br />
+            📞 Contact Number: +91 9891202828
+          </span>
+          <span
+            style="
+              display: block;
+              margin-top: 8px;
+              font-size: 0.82rem;
+              color: #666;
+            "
+          >
+            <strong>Response Framework:</strong> Acknowledgement ticket
+            generated within 48 hours; absolute final system resolution complete
+            within 30 days.
+          </span>
+        </div>
+      </div>
+    </main>
+
+    <footer class="disc-footer">
+      <p>
+       © Copyright 2026, All Rights Reserved by Magic Billion
+      </p>
+    </footer>
+
+    <!-- Floating WhatsApp Widget -->
+    <a href="https://wa.me/919891202828" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+      <span class="whatsapp-tooltip">Chat with us</span>
+      <div class="whatsapp-icon-wrapper">
+        <svg viewBox="0 0 448 512" class="whatsapp-svg">
+          <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+        </svg>
+      </div>
+      <div class="whatsapp-pulse"></div>
+    </a>
+  </body>
+</html>
