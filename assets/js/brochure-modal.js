@@ -36,7 +36,6 @@
       const modal = document.getElementById("brochureModal");
       const closeBtn = document.getElementById("brochureModalClose");
       const form = document.getElementById("brochure-submit-form");
-      const errorBox = document.getElementById("brochureFormError"); // ← CHANGE 1
 
       if (!modal) return;
 
@@ -65,7 +64,8 @@
         modal.setAttribute("aria-hidden", "true");
         document.body.classList.remove("modal-open");
 
-        // Error box bhi reset karo jab modal band ho
+        // ← form ke andar se dhundho
+        const errorBox = form ? form.querySelector("#brochureFormError") : null;
         if (errorBox) {
           errorBox.style.display = "none";
           errorBox.textContent = "";
@@ -102,6 +102,9 @@
       if (form) {
         form.addEventListener("submit", async (e) => {
           e.preventDefault();
+
+          // ← SUBMIT KE ANDAR errorBox fetch karo — tab tak DOM mein hoga
+          const errorBox = form.querySelector("#brochureFormError");
 
           const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
           const phoneRegex = /^[6-9]\d{9}$/;
@@ -158,13 +161,12 @@
           submitBtn.textContent = "Sending...";
           submitBtn.disabled = true;
 
-          // ← CHANGE 2: Error box reset
+          // Error box reset
           if (errorBox) {
             errorBox.style.display = "none";
             errorBox.textContent = "";
           }
 
-          // ← CHANGE 3: Clean try/catch with error box
           try {
             const formData = {
               name: fields.name.value.trim(),
