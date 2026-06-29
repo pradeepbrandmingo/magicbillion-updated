@@ -133,7 +133,10 @@
                   required
                 ></textarea>
               </div>
-              <div class="form-row full-width hero-select-wrap-row" style="display: none;">
+              <div
+                class="form-row full-width hero-select-wrap-row"
+                style="display: none"
+              >
                 <div class="cfs-select-wrap">
                   <select
                     id="course"
@@ -166,6 +169,16 @@
               >
                 Send Message
               </button>
+              <div
+                id="heroFormError"
+                style="
+                  display: none;
+                  color: #e53935;
+                  margin-top: 10px;
+                  font-size: 14px;
+                  font-weight: 500;
+                "
+              ></div>
             </form>
           </div>
         </div>
@@ -1148,22 +1161,19 @@
             </div>
 
             <!-- Step 4 -->
-           
+
             <div class="process-node">
-  <div class="node-dot"></div>
-  <div class="node-icon">
-    <svg
-      viewBox="0 0 24 24"
-      width="32"
-      height="32"
-      fill="#ce2945"
-    >
-      <!-- Ekdam asli aur solid Passenger Airplane ka design -->
-      <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
-    </svg>
-  </div>
-  <span class="node-label">Move To Germany</span>
-</div>
+              <div class="node-dot"></div>
+              <div class="node-icon">
+                <svg viewBox="0 0 24 24" width="32" height="32" fill="#ce2945">
+                  <!-- Ekdam asli aur solid Passenger Airplane ka design -->
+                  <path
+                    d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"
+                  />
+                </svg>
+              </div>
+              <span class="node-label">Move To Germany</span>
+            </div>
 
             <!-- Step 5 -->
             <div class="process-node">
@@ -1848,7 +1858,7 @@
       })();
     </script>
 
-    <!-- hero section  -->
+    <!-- hero section -->
     <script>
       (function () {
         "use strict";
@@ -1858,7 +1868,6 @@
           var formCard = document.querySelector(".hero-form-card");
           var form = document.getElementById("hero-message-form");
 
-          /* Animate in on load — hero is above fold, no scroll needed */
           if (content)
             setTimeout(function () {
               content.classList.add("is-visible");
@@ -1869,7 +1878,6 @@
               formCard.classList.add("is-visible");
             }, 260);
 
-          /* Input focus z-index */
           var inputs = document.querySelectorAll(
             ".hero-card-form input, .hero-card-form textarea",
           );
@@ -1878,16 +1886,23 @@
             input.addEventListener("focus", function () {
               input.parentElement.style.zIndex = "1";
             });
-
             input.addEventListener("blur", function () {
               input.parentElement.style.zIndex = "";
             });
           });
 
-          /* Form submit */
           if (form) {
             form.addEventListener("submit", async function (e) {
               e.preventDefault();
+
+              // ← Error box fetch karo
+              const errorBox = document.getElementById("heroFormError");
+
+              // Error box reset
+              if (errorBox) {
+                errorBox.style.display = "none";
+                errorBox.textContent = "";
+              }
 
               // ---- Validation ----
               var nameVal = (
@@ -1905,19 +1920,21 @@
               var messageVal = (
                 document.getElementById("message").value || ""
               ).trim();
+              var courseVal = document.getElementById("course").value;
 
               var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
               var phoneRegex = /^[6-9]\d{9}$/;
 
+              // Reset borders
               [
-                document.getElementById("name"),
-                document.getElementById("email"),
-                document.getElementById("phone"),
-                document.getElementById("subject"),
-                document.getElementById("message"),
-                document.getElementById("course"),
-              ].forEach(function (el) {
-                el.style.borderColor = "";
+                "name",
+                "email",
+                "phone",
+                "subject",
+                "message",
+                "course",
+              ].forEach(function (id) {
+                document.getElementById(id).style.borderColor = "";
               });
 
               var isValid = true;
@@ -1938,13 +1955,11 @@
                 document.getElementById("subject").style.borderColor = "red";
                 isValid = false;
               }
-              var courseVal = document.getElementById("course").value;
-
               if (!messageVal) {
-                fields.message.style.borderColor = "red";
+                // ✅ BUG 1 FIX — fields.message hataya
+                document.getElementById("message").style.borderColor = "red";
                 isValid = false;
               }
-
               if (!courseVal) {
                 document.getElementById("course").style.borderColor = "red";
                 isValid = false;
@@ -1960,56 +1975,28 @@
               btn.disabled = true;
               btn.style.opacity = "0.75";
 
-              const formData = {
-                name: document.getElementById("name").value.trim(),
-                email: document.getElementById("email").value.trim(),
-                phone: document.getElementById("phone").value.trim(),
-                subject: document.getElementById("subject").value.trim(),
-                message: document.getElementById("message").value.trim(),
-                course: document.getElementById("course").value,
-                source: "Hero Form",
-              };
-
-              let success = false;
-              let errorMsg = "Something went wrong";
-
               try {
+                const formData = {
+                  name: nameVal,
+                  email: emailVal,
+                  phone: phoneVal,
+                  subject: subjectVal,
+                  message: messageVal,
+                  course: courseVal,
+                  source: "Hero Form",
+                };
+
                 const response = await fetch("/api/lead", {
                   method: "POST",
-                  headers: {
-                    "Content-Type": "application/json",
-                  },
+                  headers: { "Content-Type": "application/json" },
                   body: JSON.stringify(formData),
                 });
 
-                if (response.ok) {
-                  const result = await response.json();
+                const result = await response.json();
+                console.log("Hero Lead:", result);
 
-                  if (
-                    result.success &&
-                    result.salesforce &&
-                    result.salesforce.success
-                  ) {
-                    success = true;
-                    console.log("Salesforce Lead Created:", result);
-                  } else {
-                    errorMsg =
-                      result.salesforce?.errors?.join(", ") ||
-                      result.message ||
-                      errorMsg;
-
-                    console.error("Salesforce Error:", result);
-                  }
-                }
-              } catch (e) {
-                console.warn(
-                  "API route failed, falling back to direct Google Sheets post:",
-                  e,
-                );
-              }
-
-              try {
-                if (success) {
+                if (result.success) {
+                  // ✅ SUCCESS
                   btn.textContent = "✓ Sent!";
                   btn.style.background = "#2e7d32";
                   btn.style.borderColor = "#2e7d32";
@@ -2017,7 +2004,6 @@
 
                   setTimeout(function () {
                     form.reset();
-
                     btn.textContent = original;
                     btn.disabled = false;
                     btn.style.background = "";
@@ -2025,10 +2011,34 @@
                     btn.style.opacity = "1";
                   }, 2500);
                 } else {
-                  throw new Error(errorMsg);
+                  // ❌ DUPLICATE / ERROR
+                  const msg = result.message || "Something went wrong.";
+
+                  if (errorBox) {
+                    errorBox.textContent = msg;
+                    errorBox.style.display = "block";
+                  }
+
+                  btn.textContent = "Failed!";
+                  btn.style.background = "#d32f2f";
+                  btn.style.borderColor = "#d32f2f";
+                  btn.style.opacity = "1";
+
+                  setTimeout(function () {
+                    btn.textContent = original;
+                    btn.disabled = false;
+                    btn.style.background = "";
+                    btn.style.borderColor = "";
+                    btn.style.opacity = "1";
+                  }, 2500);
                 }
               } catch (error) {
                 console.error("Lead Submit Error:", error);
+
+                if (errorBox) {
+                  errorBox.textContent = "Unable to connect to the server.";
+                  errorBox.style.display = "block";
+                }
 
                 btn.textContent = "Failed!";
                 btn.style.background = "#d32f2f";
