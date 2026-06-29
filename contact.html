@@ -187,6 +187,15 @@
             </div>
 
             <button type="submit" class="cfs-submit-btn">Send Message</button>
+            <div
+              id="formError"
+              style="
+                display: none;
+                color: red;
+                margin-top: 10px;
+                font-size: 14px;
+              "
+            ></div>
           </form>
         </div>
 
@@ -837,7 +846,6 @@
             },
             { threshold: 0.15 },
           );
-
           animEls.forEach((el) => observer.observe(el));
         } else {
           animEls.forEach((el) => el.classList.add("is-visible"));
@@ -847,7 +855,6 @@
         function validateForm(form) {
           let valid = true;
 
-          // Reset all borders first
           form.querySelectorAll(".cfs-input, .cfs-textarea").forEach((el) => {
             el.style.borderColor = "";
           });
@@ -855,7 +862,6 @@
           const getValue = (name) =>
             (form.querySelector(`[name="${name}"]`)?.value || "").trim();
 
-          // Full Name — required
           const name = getValue("fullName");
           if (!name) {
             form.querySelector('[name="fullName"]').style.borderColor =
@@ -863,7 +869,6 @@
             valid = false;
           }
 
-          // Email — required + format
           const email = getValue("email");
           const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
           if (!email || !emailRegex.test(email)) {
@@ -872,7 +877,6 @@
             valid = false;
           }
 
-          // Phone — required + exactly 10 digits
           const phone = getValue("phone");
           const phoneRegex = /^[6-9]\d{9}$/;
           if (!phone || !phoneRegex.test(phone)) {
@@ -881,7 +885,6 @@
             valid = false;
           }
 
-          // Subject — required
           const subject = getValue("subject");
           if (!subject) {
             form.querySelector('[name="subject"]').style.borderColor =
@@ -889,7 +892,6 @@
             valid = false;
           }
 
-          // Message — required
           const message = getValue("message");
           if (!message) {
             form.querySelector('[name="message"]').style.borderColor =
@@ -902,6 +904,7 @@
 
         // ---- Contact Form Submit ----
         const form = document.getElementById("contactForm");
+        const errorBox = document.getElementById("formError"); // ← CHANGE 1
 
         if (form) {
           form.addEventListener("submit", async function (e) {
@@ -910,10 +913,14 @@
             const btn = form.querySelector(".cfs-submit-btn");
             const originalText = btn.textContent;
 
-            // Run validation
             if (!validateForm(form)) return;
 
+            // ← CHANGE 2: Error box reset
+            errorBox.style.display = "none";
+            errorBox.textContent = "";
+
             btn.textContent = "Sending...";
+
             try {
               const formData = {
                 name: form.querySelector('[name="fullName"]').value,
@@ -931,9 +938,7 @@
               try {
                 const response = await fetch("/api/lead", {
                   method: "POST",
-                  headers: {
-                    "Content-Type": "application/json",
-                  },
+                  headers: { "Content-Type": "application/json" },
                   body: JSON.stringify(formData),
                 });
 
@@ -945,19 +950,20 @@
                 } else {
                   success = false;
                   errorMsg = result.message || "Something went wrong.";
-
                   console.error("Salesforce Error:", result);
 
-                  // Duplicate / Validation message
-                  alert(errorMsg);
+                  // ← CHANGE 3: alert() hata ke errorBox mein dikhao
+                  errorBox.textContent = errorMsg;
+                  errorBox.style.display = "block";
                 }
               } catch (e) {
                 console.error("API Error:", e);
-
                 success = false;
                 errorMsg = "Unable to connect to the server.";
 
-                alert(errorMsg);
+                // ← CHANGE 3: yahan bhi
+                errorBox.textContent = errorMsg;
+                errorBox.style.display = "block";
               }
 
               if (success) {
@@ -977,7 +983,6 @@
               }
             } catch (error) {
               console.error("Error:", error);
-
               btn.textContent = "Failed!";
 
               setTimeout(() => {
