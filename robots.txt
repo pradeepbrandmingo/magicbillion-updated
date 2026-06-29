@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Block unnecessary files from crawling
+Disallow: /CSS/
+Disallow: /brochure-modal.html
+
+Sitemap: https://www.mbglobalskillsacademy.com/sitemap.xml
