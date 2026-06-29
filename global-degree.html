@@ -158,6 +158,8 @@
               >
                 Send Message
               </button>
+              <div id="heroFormError" style="display:none; color:#e53935; margin-top:10px; font-size:14px; font-weight:500;"></div>
+
             </form>
           </div>
         </div>
@@ -1997,7 +1999,7 @@ Entry-level salaries: €25,000–40,000 (₹22–35 LPA) for fresh graduates.
       })();
     </script>
 
-    <!-- hero section -->
+
 <!-- hero section -->
 <script>
 (function () {
@@ -2008,13 +2010,8 @@ Entry-level salaries: €25,000–40,000 (₹22–35 LPA) for fresh graduates.
     const formCard = document.querySelector(".hero-form-card");
     const form = document.getElementById("hero-message-form");
 
-    if (content) {
-      setTimeout(() => content.classList.add("is-visible"), 120);
-    }
-
-    if (formCard) {
-      setTimeout(() => formCard.classList.add("is-visible"), 260);
-    }
+    if (content) setTimeout(() => content.classList.add("is-visible"), 120);
+    if (formCard) setTimeout(() => formCard.classList.add("is-visible"), 260);
 
     const inputs = document.querySelectorAll(
       ".hero-card-form input, .hero-card-form textarea"
@@ -2024,7 +2021,6 @@ Entry-level salaries: €25,000–40,000 (₹22–35 LPA) for fresh graduates.
       input.addEventListener("focus", () => {
         input.parentElement.style.zIndex = "1";
       });
-
       input.addEventListener("blur", () => {
         input.parentElement.style.zIndex = "";
       });
@@ -2034,18 +2030,27 @@ Entry-level salaries: €25,000–40,000 (₹22–35 LPA) for fresh graduates.
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
+        // ← Error box fetch karo
+        const errorBox = document.getElementById("heroFormError");
+
+        // Error box reset
+        if (errorBox) {
+          errorBox.style.display = "none";
+          errorBox.textContent = "";
+        }
+
         // ---- Validation ----
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const phoneRegex = /^[6-9]\d{9}$/;
 
-       const fields = {
-       name: form.querySelector('[name="name"]'),
-       email: form.querySelector('[name="email"]'),
-       phone: form.querySelector('[name="phone"]'),
-       subject: form.querySelector('[name="subject"]'),
-       message: form.querySelector('[name="message"]'),
-       course: form.querySelector('[name="course"]'),
-};
+        const fields = {
+          name: form.querySelector('[name="name"]'),
+          email: form.querySelector('[name="email"]'),
+          phone: form.querySelector('[name="phone"]'),
+          subject: form.querySelector('[name="subject"]'),
+          message: form.querySelector('[name="message"]'),
+          course: form.querySelector('[name="course"]'),
+        };
 
         Object.values(fields).forEach((el) => (el.style.borderColor = ""));
 
@@ -2055,11 +2060,8 @@ Entry-level salaries: €25,000–40,000 (₹22–35 LPA) for fresh graduates.
         if (!fields.email.value.trim() || !emailRegex.test(fields.email.value.trim())) { fields.email.style.borderColor = "red"; isValid = false; }
         if (!fields.phone.value.trim() || !phoneRegex.test(fields.phone.value.trim())) { fields.phone.style.borderColor = "red"; isValid = false; }
         if (!fields.subject.value.trim()) { fields.subject.style.borderColor = "red"; isValid = false; }
-        if (!fields.course.value) {
-               fields.course.style.borderColor = "red";
-                     isValid = false;
-              }
         if (!fields.message.value.trim()) { fields.message.style.borderColor = "red"; isValid = false; }
+        if (!fields.course.value) { fields.course.style.borderColor = "red"; isValid = false; }
 
         if (!isValid) return;
         // ---- Validation End ----
@@ -2069,45 +2071,29 @@ Entry-level salaries: €25,000–40,000 (₹22–35 LPA) for fresh graduates.
 
         btn.textContent = "Sending...";
         btn.disabled = true;
+
         try {
-         const formData = {
-  name: form.querySelector('[name="name"]').value.trim(),
-  email: form.querySelector('[name="email"]').value.trim(),
-  phone: form.querySelector('[name="phone"]').value.trim(),
-  subject: form.querySelector('[name="subject"]').value.trim(),
-  message: form.querySelector('[name="message"]').value.trim(),
-  course: form.querySelector('[name="course"]').value,
-  source: "Global Degree Program",
-};
+          const formData = {
+            name: fields.name.value.trim(),
+            email: fields.email.value.trim(),
+            phone: fields.phone.value.trim(),
+            subject: fields.subject.value.trim(),
+            message: fields.message.value.trim(),
+            course: fields.course.value,
+            source: "Global Degree Program",
+          };
 
-          let success = false;
-          let errorMsg = "Something went wrong";
+          const response = await fetch("/api/lead", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData),
+          });
 
-          try {
-            const response = await fetch("/api/lead", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(formData),
-            });
+          const result = await response.json();
+          console.log("Lead Submitted:", result);
 
-            if (response.ok) {
-              const result = await response.json();
-              if (result.success) {
-                success = true;
-                console.log("Lead Submitted:", result);
-              } else {
-                errorMsg = result.message || errorMsg;
-              }
-            }
-          } catch (e) {
-            console.warn("API route failed, falling back to direct Google Sheets post:", e);
-          }
-
-
-
-          if (success) {
+          if (result.success) {
+            // ✅ SUCCESS
             btn.textContent = "✓ Sent!";
             btn.style.background = "#2e7d32";
             btn.style.borderColor = "#2e7d32";
@@ -2119,28 +2105,56 @@ Entry-level salaries: €25,000–40,000 (₹22–35 LPA) for fresh graduates.
               btn.disabled = false;
               btn.style.background = "";
               btn.style.borderColor = "";
+              btn.style.opacity = "1";
             }, 2500);
+
           } else {
-            throw new Error(errorMsg);
+            // ❌ DUPLICATE / ERROR
+            const msg = result.message || "Something went wrong.";
+
+            if (errorBox) {
+              errorBox.textContent = msg;
+              errorBox.style.display = "block";
+            }
+
+            btn.textContent = "Failed!";
+            btn.style.background = "#d32f2f";
+            btn.style.borderColor = "#d32f2f";
+            btn.style.opacity = "1";
+
+            setTimeout(() => {
+              btn.textContent = original;
+              btn.disabled = false;
+              btn.style.background = "";
+              btn.style.borderColor = "";
+              btn.style.opacity = "1";
+            }, 2500);
           }
 
         } catch (error) {
           console.error("Error:", error);
 
+          if (errorBox) {
+            errorBox.textContent = "Unable to connect to the server.";
+            errorBox.style.display = "block";
+          }
+
           btn.textContent = "Failed!";
           btn.style.background = "#d32f2f";
           btn.style.borderColor = "#d32f2f";
+          btn.style.opacity = "1";
 
           setTimeout(() => {
             btn.textContent = original;
             btn.disabled = false;
             btn.style.background = "";
+            btn.style.borderColor = "";
             btn.style.opacity = "1";
           }, 2500);
         }
       });
     }
-  } // Closes initHero()
+  }
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initHero);
